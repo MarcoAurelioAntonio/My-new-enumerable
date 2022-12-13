@@ -1,0 +1,2 @@
+mmm = 'ponele'
+puts mmm
