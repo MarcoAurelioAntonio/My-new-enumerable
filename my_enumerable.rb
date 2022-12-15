@@ -1,19 +1,11 @@
 module My_enumerable
     def all?
-        #for i in 0...@list.length
-        #    return false unless yield(@list[i])
-        #end
 
         @list.each {|e| return false unless yield(e)}
         true
     end
 
     def any?
-        #for i in 0...@list.length
-        #    return true if yield(@list[i])
-        #end
-
-        # Another way to do 'each'
         @list.each do 
             |e| return true if yield(e)
         end
