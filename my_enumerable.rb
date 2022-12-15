@@ -1,22 +1,20 @@
-module My_enumerable
-    def all?
+module MyEnumerable
+  def all?
+    @list.each { |e| return false unless yield(e) }
+    true
+  end
 
-        @list.each {|e| return false unless yield(e)}
-        true
+  def any?
+    @list.each do |e|
+      return true if yield(e)
     end
+    false
+  end
 
-    def any?
-        @list.each do 
-            |e| return true if yield(e)
-        end
-        false
-    end
+  def filter
+    result = []
 
-    def filter
-        result = []
-
-        @list.each {|e| result << e if yield(e)}
-        result
-    end
-
+    @list.each { |e| result << e if yield(e) }
+    result
+  end
 end
